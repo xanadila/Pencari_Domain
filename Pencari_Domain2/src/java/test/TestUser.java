@@ -20,9 +20,9 @@ public class TestUser {
         UserCalonPembeliHelper helper = new UserCalonPembeliHelper();
         List<UserCalonPembeli> list = helper.getUserCalonPembeli();
         for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i).getEmail());
             System.out.println(list.get(i).getNama());
             System.out.println(list.get(i).getPassword());
+            System.out.println(list.get(i).getEmail());
         }
 
     }

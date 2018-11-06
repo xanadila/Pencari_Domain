@@ -1,5 +1,5 @@
 package pojos;
-// Generated Nov 1, 2018 11:49:46 AM by Hibernate Tools 4.3.1
+// Generated Nov 6, 2018 11:35:38 AM by Hibernate Tools 4.3.1
 
 
 
@@ -10,12 +10,18 @@ public class Services  implements java.io.Serializable {
 
 
      private String domain;
+     private Double harga;
 
     public Services() {
     }
 
+	
     public Services(String domain) {
+        this.domain = domain;
+    }
+    public Services(String domain, Double harga) {
        this.domain = domain;
+       this.harga = harga;
     }
    
     public String getDomain() {
@@ -24,6 +30,13 @@ public class Services  implements java.io.Serializable {
     
     public void setDomain(String domain) {
         this.domain = domain;
+    }
+    public Double getHarga() {
+        return this.harga;
+    }
+    
+    public void setHarga(Double harga) {
+        this.harga = harga;
     }
 
 
