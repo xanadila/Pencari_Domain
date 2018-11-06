@@ -5,10 +5,12 @@
  */
 package helper;
 
+import java.util.Date;
 import util.NewHibernateUtil;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import pojos.UserCalonPembeli;
 
 public class UserCalonPembeliHelper {
@@ -23,6 +25,18 @@ public class UserCalonPembeliHelper {
         Query q = session.createQuery(query);
         List<UserCalonPembeli> list = q.list();
         return list;
+    }
+    public void addNewUserCalonPembeli(
+            String nama,
+            String password,
+            String email) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        UserCalonPembeli pembeli = new UserCalonPembeli(nama, password, email);
+        session.saveOrUpdate(pembeli);
+        transaction.commit();
+        session.close();
+
     }
 
 }
