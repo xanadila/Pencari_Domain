@@ -27,12 +27,12 @@ public class UserCalonPembeliHelper {
         return list;
     }
     public void addNewUserCalonPembeli(
+            String email,
             String nama,
-            String password,
-            String email) {
+            String password) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        UserCalonPembeli pembeli = new UserCalonPembeli(nama, password, email);
+        UserCalonPembeli pembeli = new UserCalonPembeli(email,nama, password);
         session.saveOrUpdate(pembeli);
         transaction.commit();
         session.close();
