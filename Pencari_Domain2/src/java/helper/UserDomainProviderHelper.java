@@ -9,6 +9,7 @@ import util.NewHibernateUtil;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import pojos.UserDomainProvider;
 
 public class UserDomainProviderHelper {
@@ -23,6 +24,19 @@ public class UserDomainProviderHelper {
         Query q = session.createQuery(query);
         List<UserDomainProvider> list = q.list();
         return list;
+    }
+    
+    public void addNewDomainProvider(
+            String email,
+            String nama,
+            String password) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        UserDomainProvider penjual = new UserDomainProvider(email,nama, password);
+        session.saveOrUpdate(penjual);
+        transaction.commit();
+        session.close();
+
     }
 
 }
