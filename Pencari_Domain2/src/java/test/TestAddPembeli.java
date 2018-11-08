@@ -20,6 +20,6 @@ public class TestAddPembeli {
         String password = "21456";
         String email = "puspaningtyas@gmail.com";
         UserCalonPembeliHelper helper = new UserCalonPembeliHelper();
-        helper.addNewUserCalonPembeli(email, nama, password);
+         helper.addNewUserCalonPembeli(email, nama, password);
     }
 }
