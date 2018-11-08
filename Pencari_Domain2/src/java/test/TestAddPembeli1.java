@@ -6,13 +6,14 @@
 package test;
 
 import helper.UserCalonPembeliHelper;
+import pojos.UserCalonPembeli;
 
 
 /**
  *
  * @author basisa25
  */
-public class TestAddPembeli {
+public class TestAddPembeli1 {
 
     public static void main(String[] args) {
 
@@ -20,6 +21,6 @@ public class TestAddPembeli {
         String password = "21456";
         String email = "puspaningtyas@gmail.com";
         UserCalonPembeliHelper helper = new UserCalonPembeliHelper();
-        helper.addNewUserCalonPembeli(email, nama, password);
+        helper.addNewUserCalonPembeli(new UserCalonPembeli(email, nama, password));
     }
 }

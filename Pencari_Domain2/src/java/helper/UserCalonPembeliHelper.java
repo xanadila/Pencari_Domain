@@ -26,6 +26,12 @@ public class UserCalonPembeliHelper {
         List<UserCalonPembeli> list = q.list();
         return list;
     }
+    
+    public void addNewUserCalonPembeli(UserCalonPembeli pembeli) {
+        addNewUserCalonPembeli(pembeli.getEmail(), 
+                pembeli.getNama(), 
+                pembeli.getPassword());
+    }
     public void addNewUserCalonPembeli(
             String email,
             String nama,
