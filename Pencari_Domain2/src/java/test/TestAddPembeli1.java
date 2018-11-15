@@ -16,10 +16,9 @@ import pojos.UserCalonPembeli;
 public class TestAddPembeli1 {
 
     public static void main(String[] args) {
-
-        String nama = "Puspaningtyas";
-        String password = "21456";
-        String email = "puspaningtyas@gmail.com";
+        String nama = "Kaneki";
+        String password = "76543";
+        String email = "kaneki@gmail.com";
         UserCalonPembeliHelper helper = new UserCalonPembeliHelper();
         helper.addNewUserCalonPembeli(new UserCalonPembeli(email, nama, password));
     }

@@ -20,8 +20,10 @@ public class TestServices {
         ServicesHelper helper = new ServicesHelper();
         List<Services> list = helper.getServices();
         for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i).getId());
             System.out.println(list.get(i).getDomain());
-            System.out.println(list.get(i));
+            System.out.println(list.get(i).getNamaPenjual());
+            System.out.println(list.get(i).getHarga());
         }
 
     }
