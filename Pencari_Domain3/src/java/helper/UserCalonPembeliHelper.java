@@ -5,7 +5,6 @@
  */
 package helper;
 
-import java.util.Date;
 import util.NewHibernateUtil;
 import java.util.List;
 import org.hibernate.Query;
@@ -19,32 +18,41 @@ public class UserCalonPembeliHelper {
 
     }
 
-    public List<UserCalonPembeli> getUserCalonPembeli(){
+    public List<UserCalonPembeli> getUserCalonPembeli() {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         String query = "from UserCalonPembeli";
         Query q = session.createQuery(query);
         List<UserCalonPembeli> list = q.list();
         return list;
     }
-    
+
     public void addNewUserCalonPembeli(UserCalonPembeli pembeli) {
-        addNewUserCalonPembeli(pembeli.getEmail(), 
-                pembeli.getNama(), 
+        addNewUserCalonPembeli(pembeli.getEmail(),
+                pembeli.getNama(),
                 pembeli.getPassword());
     }
+
     public void addNewUserCalonPembeli(
             String email,
             String nama,
             String password) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        UserCalonPembeli pembeli = new UserCalonPembeli(email,nama, password);
+        UserCalonPembeli pembeli = new UserCalonPembeli(email, nama, password);
         session.saveOrUpdate(pembeli);
         transaction.commit();
         session.close();
+    }
 
+    public UserCalonPembeli login(String email, String password) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        String q = "From UserCalonPembeli a where a.email=:email AND a.password =:password";
+
+        Query query = session.createQuery(q);
+        query.setParameter("email", email);
+        query.setParameter("password", password);
+
+        return (UserCalonPembeli) query.uniqueResult();
     }
 
 }
-
-
