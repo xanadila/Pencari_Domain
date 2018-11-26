@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <link rel="icon" href="https://www.billionacts.org/images/areas/4/illustration-small.png">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body {font-family: Arial, Helvetica, sans-serif;}
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: black;
+                color: white;
+                text-align: center;
+            }
+            .jumbotron {
+                background-image: url(http://www.intelligenthealth.co.uk/wp-content/uploads/2015/09/IH-Circle-Background-v4-1024x450.gif);
+                background-color: #17234E;
+                margin-bottom: 0;
+                min-height: 50%;
+                background-repeat: no-repeat;
+                background-position: center;
+                -webkit-background-size: cover;
+                background-size: cover;
+            }
+            a {
+                font-family: 'Josefin Sans', sans-serif;
+                text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
+                font-size: 66px;
+            }
+            input[type=text], input[type=password] {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                box-sizing: border-box;
+            }
+
+            /* Set a style for all buttons */
+            .button {
+                display: inline-block;
+                border-radius: 6px;
+                background-color: #1EE849;
+                border: none;
+                color: black;
+                text-align: center;
+                font-size: 28px;
+                padding: 8px;
+                width: 175px;
+                transition: all 0.5s;
+                cursor: pointer;
+            }
+            .button span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+            .button span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+            .button:hover {
+                background-color: #1EE849;
+                color: black;
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+            }
+            .button:hover span {
+                padding-right: 25px;
+            }
+            .button:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+                padding-top: 20px;
+            }
+
+            /* Modal Content/Box */
+            .modal-content {
+                background-color: #fefefe;
+                margin: 5px auto; /* 15% from the top and centered */
+                border: 1px solid #888;
+                width: 20%; /* Could be more or less, depending on screen size */
+            }
+
+
+            /* Add Zoom Animation */
+            .animate {
+                -webkit-animation: animatezoom 0.6s;
+                animation: animatezoom 0.6s
+            }
+            .cancelbtn {
+                width: 8%;
+            }
+
+            @-webkit-keyframes animatezoom {
+                from {-webkit-transform: scale(0)} 
+                to {-webkit-transform: scale(1)}
+            }
+
+            @keyframes animatezoom {
+                from {transform: scale(0)} 
+                to {transform: scale(1)}
+            }
+
+        </style>
+        <title>Toko Domain</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body style="background-image:url(https://wallpaper.wiki/wp-content/uploads/2017/05/HD-Wallpaper-Computer-Free-Download.jpg)">
+
+        <div class="jumbotron text-center">
+            <a href="index.html" style="text-decoration: none"><font color="white"><b>Toko</b></font><font color="#63E842">Domain</font></a>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="bg">
+                        <h1><font face="Century Gothic" color=white size="4"><b>Login Sebagai penjual atau pembeli dahulu. Jika belum
+                        punya akun silakan login</b></font>
+                        </h1>
+                    </div>
+                    <a><button class="button" id="btn" type="button" onclick="document.getElementById('id02').style.display = 'block'" style="vertical-align:middle"><font face="Century Gothic" size="4" ><span>Daftar Akun </span></font></button></a>
+                    <a><button class="button" id="btn" type="button" onclick="document.getElementById('id01').style.display = 'block'" style="vertical-align:middle"><font face="Century Gothic" size="4" ><span>Login </span></font></button></a>
+                </div>
+            </div>
+        </div>
+        <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display = 'none'">&times;</span>
+
+            <form class="modal-content animate">
+                <div class="container">
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&ensp;<a href="LoginPenjual.html"><font face="Century Gothic" size="3" ><span>Login Penjual </span></font></a>
+                    <br>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;<a href="LoginPembeli.html"><font face="Century Gothic" size="3" ><span>Login Pembeli </span></font></a>
+                    <br><br>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;<button type="button" onclick="document.getElementById('id01').style.display = 'none'" class="cancelbtn">Batal</button>
+                    <br><br><br>
+                </div>
+            </form>
+        </div>
+        <div id="id02" class="modal">
+            <span onclick="document.getElementById('id01').style.display = 'none'">&times;</span>
+
+            <form class="modal-content animate">
+                <div class="container">
+                    &emsp;&emsp;&emsp;&emsp;&emsp;&ensp;<a href="daftarpenjual.html"><font face="Century Gothic" size="3" ><span>Daftar Penjual </span></font></a>
+                    <br>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;<a href="daftarPembeli.html"><font face="Century Gothic" size="3" ><span>Daftar Pembeli </span></font></a>
+                    <br><br>
+                    &emsp;&emsp;&emsp;&emsp;&emsp;
+                    <button type="button" onclick="document.getElementById('id02').style.display = 'none'" class="cancelbtn">Batal</button>
+                    <br><br><br>
+                </div>
+            </form>
+        </div>
+        <div class="footer">
+            <p><font face="Century Gothic">This page is copyrighted 2018 by </font></p>
+        </div>
+    </body>
+</html>

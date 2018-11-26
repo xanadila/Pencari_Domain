@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Full Slider - Start Bootstrap Template</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="css/full-slider.css" rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+
+    </head>
+
+    <body>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+               
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+
+
+        <style>
+
+
+
+            #myfooter{
+                color:white;
+                background-color: #3AF1CB;
+                padding: 30px;
+                text-align: center;
+                float: bottom;
+
+                margin:0px;
+            }
+
+            .submit_button {
+                background-color: #559EFF; /* Green */
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                margin-left: 25%;
+                margin-bottom: 23px;
+                float: center;
+                border-radius: 5px;
+                width: 20%;
+
+            }
+            .button2:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+            }
+            .form{
+                width: 86%;
+                height: 50%;
+                float: right;
+                margin-right: 10%;
+                margin-top: 10px;
+
+
+
+
+            }
+        </style>
+    </head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <form class="form" id="registration form" onsubmit="return make_json(this)" method="POST">
+        <div class="form-group">
+            <br><br><br>
+
+            <label for="email">Email</label>
+            <input id="email" required placeholder="Enter Name" type="text" class="form-control">
+
+        </div>
+        <div class="form-group">
+
+            <label for="nama">Nama </label>
+            <input id="nama" required placeholder="Enter Name" type="text" class="form-control">
+
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" required placeholder="Enter Name" type="text" class="form-control">
+        </div>
+
+
+
+         <button class="submit_button button2" id="save" type="submit" style="margin-left: 1%">Daftar</button>
+          <button class="submit_button button2" style="margin-left: 5px">Batal</button>
+
+    </form>
+<p id="demo"></p>
+    <script>
+
+
+        function make_json(form) {
+            var json = {
+                "email": form.email.value,
+                "nama": form.nama.value,
+                "password": form.password.value
+            };
+            var html = JSON.stringify(json, 0, 100);
+             //var Url = "http://202.94.83.190:8080/165314034_Platform_rsku_webservice/webresources/pasien/addPasien";
+            var Url = "http://202.94.83.190:8080/165314032_34_Pencari_Domain3/webresources/addpembeli/addPembeli";
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', Url, false);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.send(html);
+
+            document.getElementById("demo").innerHTML = html;
+            return false;
+        }
+    </script>
+    
+
+
+
+
+
+    <div class="clearfix">
+
+    </div>
+
+
+
+
+
+    <footer>
+        <!-- Footer Text -->
+        <div class="container-fluid text-center text-md-left" style=" background-color: #A4AAAF">
+
+            <!-- Grid row -->
+            <div class="row" style=" background-color: #A4AAAF">
+
+                <!-- Grid column -->
+                <div class="col-md-6 mt-md-0 mt-3" style=" background-color: #A4AAAF">
+
+
+                    <!-- Content -->
+                    <h5 class="text-uppercase font-weight-bold">Footer text 1</h5>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita sapiente sint, nulla, nihil repudiandae commodi voluptatibus corrupti animi sequi aliquid magnam debitis, maxime quam recusandae harum esse fugiat. Itaque, culpa?</p>
+
+                </div>
+                <!-- Grid column -->
+
+
+
+                <!-- Grid column -->
+                <div class="col-md-6 mt-md-0 mt-3" style=" background-color: #A4AAAF">
+
+                    <!-- Content -->
+                    <h5 class="text-uppercase font-weight-bold" style=" background-color: #A4AAAF">Footer text 2</h5>
+                    <p style=" background-color: #A4AAAF">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio deserunt fuga perferendis modi earum commodi aperiam temporibus quod nulla nesciunt aliquid debitis ullam omnis quos ipsam, aspernatur id excepturi hic.</p>
+
+                </div>
+                <!-- Grid row -->
+
+            </div>
+            
+            <!-- Footer Text -->
+
+            <!-- Copyright --><br/><br/><br/><br/><br/><br/><br>
+            <div class="footer-copyright text-center py-3">© 2018 Copyright:
+
+                ME
+            </div>
+            <!-- Copyright -->
+        </div></footer>
+    
+    <!-- Footer -->
+
+</body>
+
+</html>
