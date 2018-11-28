@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>oemah sakid</title>
+        <title>Daftar Domain</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -53,36 +53,36 @@
                         <span class="icon-bar"></span>
                     </button>
 
+                    <!-- </div>
+                   
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="index.html">Home</a>
+    
+                            </li>
+                            <li>
+                                <a href="cobacobatambahklinik.html">Tambah Klinik</a>
+                            </li>
+                            <li>
+                                <a href="cobacobatambahpasien.html">Tambah Pasien</a>
+                            </li>
+                            <li>
+                                <a href="antripasien.html">Antri Pasien</a>
+                            </li>
+                            <li>
+                                <a href="bacaklinik.html">Daftar Klinik</a>
+                            </li>
+                            <li>
+                                <a href="formlogin.html">Login</a>
+    
+                            </li>
+    
+    
+                    </div> 
+                    <!-- /.navbar-collapse -->
                 </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a href="index.html">Home</a>
-
-                        </li>
-                        <li>
-                            <a href="cobacobatambahklinik.html">Tambah Klinik</a>
-                        </li>
-                        <li>
-                            <a href="cobacobatambahpasien.html">Tambah Pasien</a>
-                        </li>
-                        <li>
-                            <a href="antripasien.html">Antri Pasien</a>
-                        </li>
-                        <li>
-                            <a href="bacaklinik.html">Daftar Klinik</a>
-                        </li>
-                        <li>
-                            <a href="formlogin.html">Login</a>
-
-                        </li>
-
-
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container -->
+                <!-- /.container -->
         </nav>
 
         <!-- Full Page Image Background Carousel Header -->
@@ -98,21 +98,21 @@
             <div class="carousel-inner">
                 <div class="item active">
                     <!-- Set the first background image using inline CSS below. -->
-                    <div class="fill" style="background-image:url('bb.jpg');"></div>
+                    <div class="fill" style="background-image:url('https://cdns.abclocal.go.com/content/wls/images/cms/automation/images/2293419_1280x720.jpg');"></div>
                     <div class="carousel-caption">
 
                     </div>
                 </div>
                 <div class="item">
                     <!-- Set the second background image using inline CSS below. -->
-                    <div class="fill" style="background-image:url('ab.jpg');"></div>
+                    <div class="fill" style="background-image:url('https://www.nodericks.com/wp-content/uploads/2016/10/domain-name-background.jpg');"></div>
                     <div class="carousel-caption">
 
                     </div>
                 </div>
                 <div class="item">
                     <!-- Set the third background image using inline CSS below. -->
-                    <div class="fill" style="background-image:url('bc.jpg');"></div>
+                    <div class="fill" style="background-image:url('https://www.webhostingsun.com/wp-content/uploads/2015/09/Register-Domain-Name-800x600-1024x768.jpg');"></div>
                     <div class="carousel-caption">
 
                     </div>
@@ -139,11 +139,11 @@
                     interval: 5000 //changes the speed
                 })
             </script><br>
-            <h2 style="margin-left: 20%">Daftar Dokter</h2>
-
+            <h2 style="margin-left: 20%">Daftar Domain</h2>
+            <h2><a href="daftarDomain.html"><button class="button" id="btn" type="button" style="margin-left: 20%"><font face="Century Gothic" size="4" ><span>Tambah Domain </span></font></button></a></h2>
             <p id="demo"></p>
             <script>
-                var url = "http://202.94.83.190:8080/165314032_service/webresources/dokter/getDokter";
+                var url = "http://202.94.83.190:8080/165314032_34_Pencari_Domain3/webresources/domain/getdomain";
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
@@ -156,19 +156,22 @@
                 function loopingList(response) {
                     var size = JSON.parse(response);
                     var i;
-                    var out = "<table align='center' style='width: 60%;' border='1'> <tr><td>ID Dokter</td><td>Nama Dokter</td><td>Spesialisasi Dokter</td></tr>";
+                    var out = "<table align='center' style='width: 60%;' border='1'> <tr><td>ID Domain</td><td>Domain</td><td>Harga Domain</td><td>Nama Penjual</td></tr>";
 
                     for (i = 0; i < size.length; i++) {
                         out += "<tr><td>" + size[i].id +
-                                "</td><td>" + size[i].nama +
-                                "</td><td>" + size[i].spesialis +
+                                "</td><td>" + size[i].domain +
+                                "</td><td>" + size[i].harga +
+                                "</td><td>" + size[i].namaPenjual +
                                 "</td></tr>";
                     }
                     out += "</table>";
                     document.getElementById("demo").innerHTML = out;
                     ;
                 }
+
             </script><br>
+
             <div class="container-fluid text-center text-md-left" style=" background-color: #A4AAAF">
 
                 <!-- Grid row -->
