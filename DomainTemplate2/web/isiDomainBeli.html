@@ -1,0 +1,248 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Beli Domain</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="css/full-slider.css" rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <style>
+            h1 {
+                border-bottom: 3px solid #cc9900;
+                color: #996600;
+                font-size: 30px;
+            }
+            table, th , td  {
+                border: 1px solid grey;
+                border-collapse: collapse;
+                padding: 5px;
+            }
+            table tr:nth-child(odd) {
+                background-color: #f1f1f1;
+            }
+            table tr:nth-child(even) {
+                background-color: #ffffff;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <!-- </div>
+                   
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="index.html">Home</a>
+    
+                            </li>
+                            <li>
+                                <a href="cobacobatambahklinik.html">Tambah Klinik</a>
+                            </li>
+                            <li>
+                                <a href="cobacobatambahpasien.html">Tambah Pasien</a>
+                            </li>
+                            <li>
+                                <a href="antripasien.html">Antri Pasien</a>
+                            </li>
+                            <li>
+                                <a href="bacaklinik.html">Daftar Klinik</a>
+                            </li>
+                            <li>
+                                <a href="formlogin.html">Login</a>
+    
+                            </li>
+    
+    
+                    </div> 
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container -->
+        </nav>
+
+        <!-- Full Page Image Background Carousel Header -->
+        <header id="myCarousel" class="carousel slide">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for Slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <!-- Set the first background image using inline CSS below. -->
+                    <div class="fill" style="background-image:url('https://cdns.abclocal.go.com/content/wls/images/cms/automation/images/2293419_1280x720.jpg');"></div>
+                    <div class="carousel-caption">
+
+                    </div>
+                </div>
+                <div class="item">
+                    <!-- Set the second background image using inline CSS below. -->
+                    <div class="fill" style="background-image:url('https://www.nodericks.com/wp-content/uploads/2016/10/domain-name-background.jpg');"></div>
+                    <div class="carousel-caption">
+
+                    </div>
+                </div>
+                <div class="item">
+                    <!-- Set the third background image using inline CSS below. -->
+                    <div class="fill" style="background-image:url('https://www.webhostingsun.com/wp-content/uploads/2015/09/Register-Domain-Name-800x600-1024x768.jpg');"></div>
+                    <div class="carousel-caption">
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="icon-prev"></span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="icon-next"></span>
+            </a>
+
+            <!-- jQuery -->
+            <script src="js/jquery.js"></script>
+
+            <!-- Bootstrap Core JavaScript -->
+            <script src="js/bootstrap.min.js"></script>
+
+            <!-- Script to Activate the Carousel -->
+            <script>
+                $('.carousel').carousel({
+                    interval: 5000 //changes the speed
+                })
+            </script><br>
+            <div class="container">
+                <form action="" id="registerForm" onsubmit="return make_json(this)" method="POST">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h1><font face="Century Gothic" size="6">Form Beli Domain</font></h1>
+                            <br>
+                            <input type="text" placeholder="ID Domain" id="id" required>
+                            <button type="button" onclick="loadDoc()" id="btn"><font face="Century Gothic" size="3">OK</font></button>
+                            <br><br>
+                            <input type="text" placeholder="Nama Domain" disabled id="domain" required>
+                            <input type="text" placeholder="Harga" disabled id="harga" required><br>
+                            <input type="text" placeholder="Nama Penjual" disabled id="namaPenjual" required>
+                            <i>*otomatis berdasarkan ID Domain</i>
+                            <br><br>
+                            <font face="Century Gothic" color=white size="3">Tanggal Pembelian : </font><br>
+                            <input type="date" id="tanggalPembelian" required>
+                        </div>
+                        <div class="col-sm-4">
+                            <br>
+                            <button class="button" id="save" type="Submit" style="vertical-align:middle"><font face="Century Gothic" size="4" ><span>SIMPAN </span></font></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <p id="demo"></p>
+            <script>
+                function loadDoc() {
+                    var url = "http://202.94.83.190:8080/165314032_34_Pencari_Domain3/webresources/domain/getdomain?id=" + id.value;
+
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.open("GET", url, true);
+                    xhttp.send();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("demo").innerHTML = this.responseText;
+                            var myObj = JSON.parse(this.responseText);
+                            document.getElementById("domain").value = myObj.domain;
+                            document.getElementById("harga").value = myObj.harga;
+                            document.getElementById("namaPenjual").value = myObj.namaPenjual;
+                            document.getElementById("tanggalPembelian").value = myObj.tanggalPembelian;
+                        }
+                    }
+                }
+                function make_json(form) {
+                    var json = {
+                        "id": form.id.value,
+                        "domain": form.domain.value,
+                        "harga": form.harga.value,
+                        "namaPenjual": form.namaPenjual.value,
+                        "tanggalPembelian": form.tanggalPembelian.value
+                    };
+                    var html = JSON.stringify(json, 0, 100);
+//                    var Url = "http://202.94.83.190:8080/165314034_Platform_rsku_webservice/webresources/antrian/addAntrian";
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', Url, false);
+                    xhr.setRequestHeader("Content-type", "application/json");
+                    xhr.send(html);
+                    alert(html);
+                    document.getElementById("demo").innerHTML = html;
+                    return false;
+                }
+            </script>
+
+            <br>
+
+            <div class="container-fluid text-center text-md-left" style=" background-color: #A4AAAF">
+
+                <!-- Grid row -->
+                <div class="row" style=" background-color: #A4AAAF">
+
+                    <!-- Grid column -->
+                    <div class="col-md-6 mt-md-0 mt-3" style=" background-color: #A4AAAF">
+
+
+                        <!-- Content -->
+                        <h5 class="text-uppercase font-weight-bold">Footer text 1</h5>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita sapiente sint, nulla, nihil repudiandae commodi voluptatibus corrupti animi sequi aliquid magnam debitis, maxime quam recusandae harum esse fugiat. Itaque, culpa?</p>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="clearfix w-100 d-md-none pb-3">
+
+                    <!-- Grid column -->
+                    <div class="col-md-6 mt-md-0 mt-3" style=" background-color: #A4AAAF">
+
+                        <!-- Content -->
+                        <h5 class="text-uppercase font-weight-bold" style=" background-color: #A4AAAF">Footer text 2</h5>
+                        <p style=" background-color: #A4AAAF">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio deserunt fuga perferendis modi earum commodi aperiam temporibus quod nulla nesciunt aliquid debitis ullam omnis quos ipsam, aspernatur id excepturi hic.</p>
+
+                    </div>
+                    <!-- Grid row -->
+
+                </div>
+                <!-- Footer Text -->
+
+                <!-- Copyright --><br/><br/><br/><br/><br/>
+                <div class="footer-copyright text-center py-3">© 2018 Copyright:
+
+                    ME
+                </div>
+                <!-- Copyright -->
+
+                </footer>
+
+                </body>
+                </html>
