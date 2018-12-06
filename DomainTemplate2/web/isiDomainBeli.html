@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Beli Domain</title>
+        <title>Daftar Domain</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -53,34 +53,34 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- </div>
-                   
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <a href="index.html">Home</a>
-    
-                            </li>
-                            <li>
-                                <a href="cobacobatambahklinik.html">Tambah Klinik</a>
-                            </li>
-                            <li>
-                                <a href="cobacobatambahpasien.html">Tambah Pasien</a>
-                            </li>
-                            <li>
-                                <a href="antripasien.html">Antri Pasien</a>
-                            </li>
-                            <li>
-                                <a href="bacaklinik.html">Daftar Klinik</a>
-                            </li>
-                            <li>
-                                <a href="formlogin.html">Login</a>
-    
-                            </li>
-    
-    
-                    </div> 
-                    <!-- /.navbar-collapse -->
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="index.html">Home</a>
+
+                        </li>
+                        <li>
+                            <a href="LoginPembeli.html">Login Pembeli</a>
+                        </li>
+                        <!--        <li>
+                                    <a href="cobacobatambahpasien.html">Tambah Pasien</a>
+                                </li>
+                                <li>
+                                    <a href="antripasien.html">Antri Pasien</a>
+                                </li>
+                                <li>
+                                    <a href="bacaklinik.html">Daftar Klinik</a>
+                                </li>
+                                <li>
+                                    <a href="formlogin.html">Login</a>
+        
+                                </li>
+        
+        
+                        </div> 
+                        <!-- /.navbar-collapse -->
                 </div>
                 <!-- /.container -->
         </nav>
@@ -139,68 +139,42 @@
                     interval: 5000 //changes the speed
                 })
             </script><br>
-            <div class="container">
-                <form action="" id="registerForm" onsubmit="return make_json(this)" method="POST">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <h1><font face="Century Gothic" size="6">Form Beli Domain</font></h1>
-                            <br>
-                            <input type="text" placeholder="ID Domain" id="id" required>
-                            <button type="button" onclick="loadDoc()" id="btn"><font face="Century Gothic" size="3">OK</font></button>
-                            <br><br>
-                            <input type="text" placeholder="Nama Domain" disabled id="domain" required>
-                            <input type="text" placeholder="Harga" disabled id="harga" required><br>
-                            <input type="text" placeholder="Nama Penjual" disabled id="namaPenjual" required>
-                            <i>*otomatis berdasarkan ID Domain</i>
-                            <br><br>
-                            <font face="Century Gothic" size="3">Tanggal Pembelian : </font><br>
-                            <input type="date" id="tanggalPembelian" required>
-                        </div>
-                        <div class="col-sm-4">
-                            <br>
-                            <button class="button" id="save" type="Submit" style="vertical-align:middle"><font face="Century Gothic" size="4" ><span>SIMPAN </span></font></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            <h2 style="margin-left: 20%">Daftar Domain</h2>
             <p id="demo"></p>
             <script>
-                function loadDoc() {
-                    var url = "http://202.94.83.190:8080/165314032_34_Pencari_Domain3/webresources/domain/getdomain?id=" + id.value;
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.open("GET", url, true);
-                    xhttp.send();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            
-                            var myObj = JSON.parse(this.responseText);
-                            document.getElementById("domain").value = myObj[0].domain;
-                            document.getElementById("harga").value = myObj[0].harga;
-                            document.getElementById("namaPenjual").value = myObj[0].namaPenjual;
-                        }
+                var url = "http://202.94.83.190:8080/165314032_34_Pencari_Domain3/webresources/domain/getdomain";
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        loopingList(this.responseText);
                     }
                 }
-                function make_json(form) {
-                    var json = {
-                        "id": form.id.value,
-                        "domain": form.domain.value,
-                        "harga": form.harga.value,
-                        "namaPenjual": form.namaPenjual.value,
-                        "tanggalPembelian": form.tanggalPembelian.value
-                    };
-                    var html = JSON.stringify(json, 0, 100);
-                    var Url = "http://202.94.83.190:8080/165314034_Platform_rsku_webservice/webresources/transaksi/addTransaksi";
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('POST', Url, false);
-                    xhr.setRequestHeader("Content-type", "application/json");
-                    xhr.send(html);
-                    alert(html);
-                    document.getElementById("demo").innerHTML = html;
-                    return false;
-                }
-            </script>
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
 
-            <br>
+                function loopingList(response) {
+                    var size = JSON.parse(response);
+                    var i;
+                    var out = "<table align='center' style='width: 60%;' border='1'> \n\
+                    <tr><td>ID Domain</td><td>Domain</td><td>Harga Domain</td><td>Nama Penjual</td><td>Beli</td></tr>";
+
+                    for (i = 0; i < size.length; i++) {
+                        out += "<tr><td>" + size[i].id +
+                                "</td><td>" + size[i].domain +
+                                "</td><td>" + size[i].harga +
+                                "</td><td>" + size[i].namaPenjual +
+                                "</td><td><button onclick=\"halo('" + arr[i].id + "')\">Beli" + arr[i].id + "</button>" +
+                                "</td></tr>";
+                    }
+                    out += "</table>";
+                    document.getElementById("demo").innerHTML = out;
+                    ;
+                }
+                function halo(id) {
+                    alert(id);
+                }
+
+            </script><br>
 
             <div class="container-fluid text-center text-md-left" style=" background-color: #A4AAAF">
 
@@ -218,7 +192,7 @@
                     </div>
                     <!-- Grid column -->
 
-                    
+
 
                     <!-- Grid column -->
                     <div class="col-md-6 mt-md-0 mt-3" style=" background-color: #A4AAAF">
