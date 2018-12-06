@@ -25,7 +25,7 @@ public class ServicesHelper {
         List<Services> list = q.list();
         return list;
     }
-
+    
     public void addServices(Services services) {
         addServices(services.getId(),
                 services.getDomain(),

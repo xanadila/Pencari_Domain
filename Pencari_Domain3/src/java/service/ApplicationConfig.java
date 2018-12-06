@@ -30,6 +30,7 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(service.GenericResource.class);
+        resources.add(service.TransaksiResource.class);
         resources.add(service.UserDomainProviderResource.class);
         resources.add(service.UserPembeliResource.class);
         resources.add(service.serviceaddPembeli.class);

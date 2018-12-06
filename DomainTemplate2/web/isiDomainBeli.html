@@ -153,7 +153,7 @@
                             <input type="text" placeholder="Nama Penjual" disabled id="namaPenjual" required>
                             <i>*otomatis berdasarkan ID Domain</i>
                             <br><br>
-                            <font face="Century Gothic" color=white size="3">Tanggal Pembelian : </font><br>
+                            <font face="Century Gothic" size="3">Tanggal Pembelian : </font><br>
                             <input type="date" id="tanggalPembelian" required>
                         </div>
                         <div class="col-sm-4">
@@ -167,18 +167,16 @@
             <script>
                 function loadDoc() {
                     var url = "http://202.94.83.190:8080/165314032_34_Pencari_Domain3/webresources/domain/getdomain?id=" + id.value;
-
                     var xhttp = new XMLHttpRequest();
                     xhttp.open("GET", url, true);
                     xhttp.send();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("demo").innerHTML = this.responseText;
+                            
                             var myObj = JSON.parse(this.responseText);
-                            document.getElementById("domain").value = myObj.domain;
-                            document.getElementById("harga").value = myObj.harga;
-                            document.getElementById("namaPenjual").value = myObj.namaPenjual;
-                            document.getElementById("tanggalPembelian").value = myObj.tanggalPembelian;
+                            document.getElementById("domain").value = myObj[0].domain;
+                            document.getElementById("harga").value = myObj[0].harga;
+                            document.getElementById("namaPenjual").value = myObj[0].namaPenjual;
                         }
                     }
                 }
@@ -191,7 +189,7 @@
                         "tanggalPembelian": form.tanggalPembelian.value
                     };
                     var html = JSON.stringify(json, 0, 100);
-//                    var Url = "http://202.94.83.190:8080/165314034_Platform_rsku_webservice/webresources/antrian/addAntrian";
+                    var Url = "http://202.94.83.190:8080/165314034_Platform_rsku_webservice/webresources/transaksi/addTransaksi";
                     var xhr = new XMLHttpRequest();
                     xhr.open('POST', Url, false);
                     xhr.setRequestHeader("Content-type", "application/json");
