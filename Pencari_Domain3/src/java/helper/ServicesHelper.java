@@ -25,7 +25,7 @@ public class ServicesHelper {
         List<Services> list = q.list();
         return list;
     }
-    
+
     public void addServices(Services services) {
         addServices(services.getId(),
                 services.getDomain(),
@@ -46,13 +46,31 @@ public class ServicesHelper {
         session.close();
 
     }
-     public Services cariDomain(
+
+    public Services cariDomain(
             String domain) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         String query = "from Services s where s.domain=:domain";
         Query q = session.createQuery(query);
         q.setParameter("domain", domain);
+        List<Services> list = q.list();
+        tx.commit();
+        session.close();
+        if (list.size() > 0) {
+            return list.get(0);
+        } else {
+            return null;
+        }
+    }
+    
+    public Services cariDomainId(
+            String id) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        String query = "from Services s where s.id=:id";
+        Query q = session.createQuery(query);
+        q.setParameter("id", id);
         List<Services> list = q.list();
         tx.commit();
         session.close();

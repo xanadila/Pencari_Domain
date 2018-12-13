@@ -135,5 +135,30 @@ public class servicedomain {
                 .build();
     }
     
+    @GET
+    @Path("caridomainid")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getJson1(@QueryParam("id") String id) throws ParseException {
+        ServicesHelper helper = new ServicesHelper();
+        Services hasilCari = helper.cariDomainId(id);
+        Gson gson = new Gson();
+//        return Response.status(200)
+//                .entity(json)
+//                .build();
+        return Response.status(200)
+                .entity(gson.toJson(hasilCari))
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Methods",
+                        "GET,POST,HEAD,OPTIONS,PUT")
+                .header("Access-Control-Allow-Headers",
+                        "Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers")
+                .header("Access-Exposed-Headers",
+                        "Access-Control-Allow-Origin,Access-Control-Allow-Credentials")
+                .header("Access-Support-Credentials",
+                        "true")
+                .header("Access-Control-Max-Age", "2")
+                .header("Access-Preflight-Maxage", "2")
+                .build();
+    }
     
 }
