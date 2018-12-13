@@ -147,9 +147,7 @@
             <script>
                 function loadDoc() {
                     var xmlhttp = new XMLHttpRequest();
-//                    var url = "http://localhost:8084/165314032_34_Pencari_Domain3/webresources/domain/getdomain?domain=" + domain.value;
-                    var url = "http://localhost:8084/Pencari_Domain3/webresources/domain/getdomain?domain=" + domain.value;
-//                    var url = "http://202.94.83.190:8080/165314032_34_Pencari_Domain3/webresources/domain/getdomain?domain=" + domain.value;
+                    var url = "http://localhost:8084/Pencari_Domain3/webresources/domain/caridomain?domain=" + domain.value;
                     xmlhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
                             myFunction(this.responseText);

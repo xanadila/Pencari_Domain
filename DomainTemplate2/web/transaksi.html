@@ -140,32 +140,34 @@
                 })
             </script><br>
             <h2 style="margin-left: 20%">Transaksi</h2>
-            <table>
-                <tr><td>ID Domain</td> <td><input type="text" id="id" value=""/></td>
-                <tr><td>Domain</td> <td><input type="text" id="domain" value=""/></td>
-                <tr><td>Harga Domain</td> <td><input type="text" id="harga" value=""/></td></tr>
-                <tr><td>Nama Penjual</td> <td><input type="text" id="namaPenjual" value=""/></td></tr>
-            </table>
+            <form action="" id="registerForm" onsubmit="return make_json(this)" method="POST">
+                <table>
+                    <tr><td>ID Domain</td> <td><input type="text" id="id" value=""/></td>
+                    <tr><td>Domain</td> <td><input type="text" id="domain" value=""/></td>
+                    <tr><td>Harga Domain</td> <td><input type="text" id="harga" value=""/></td></tr>
+                    <tr><td>Nama Penjual</td> <td><input type="text" id="namaPenjual" value=""/></td></tr>
+                    <tr><td>Tanggal Pembelian</td><td><script>
+                        var tD = new Date();
+                        var datestr = (tD.getMonth() + 1) + "/" + tD.getDate() + "/" + tD.getFullYear();
+                        document.write("<input type='text' id='tanggalPembelian' name='textField' disabled value='" + datestr + "'>");
+                            </script></td></tr>
+                </table>
+            </form>
             <br>
             <p id="demo"></p>
             <script>
                 function loadDoc() {
-                    //                    var url = "http://localhost:8084/165314032_34_Pencari_Domain3/webresources/domain/getdomain?domain=" + domain.value;
-                    var url = "http://localhost:8084/Pencari_Domain3/webresources/domain/getdomain?domain=" + getCookie("username");
-//                    var url = "http://202.94.83.190:8080/165314032_34_Pencari_Domain3/webresources/domain/getdomain?domain=" + domain.value;
-                    var url = "http://206.189.38.188:8080/myrs/webresources/pasien/cariPasien?nik=" + getCookie("username");
+                    var url = "http://localhost:8084/Pencari_Domain3/webresources/domain/caridomainid?id=" + getCookie("username");
                     var xhttp = new XMLHttpRequest();
                     xhttp.open("GET", url, true);
                     xhttp.send();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
                             var objj = JSON.parse(this.responseText);
-                            document.getElementById("nrm").value = objj.noRm;
-                            document.getElementById("nama").value = objj.nama;
-                            document.getElementById("nik").value = objj.nik;
-                            document.getElementById("alamat").value = objj.alamat;
-                            document.getElementById("tanggalLahir").value = objj.tanggalLahir;
-                            document.getElementById("kelamin").value = objj.kelamin;
+                            document.getElementById("id").value = objj.id;
+                            document.getElementById("domain").value = objj.domain;
+                            document.getElementById("harga").value = objj.harga;
+                            document.getElementById("namaPenjual").value = objj.namaPenjual;
                         }
                     };
                 }
@@ -190,7 +192,24 @@
                         document.getElementById("jadwal").value = username;
                     }
                 }
-
+                function make_json(form) {
+                    var json = {
+                        "id": form.id.value,
+                        "domain": form.domain.value,
+                        "harga": form.harga.value,
+                        "namaPenjual": form.namaPenjual.value,
+                        "tanggalPembelian": form.tanggalPembelian.value
+                    };
+                    var html = JSON.stringify(json, 0, 100);
+                    var Url = "http://localhost:8084/Pencari_Domain3/webresources/transaksi/addTransaksi";
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', Url, false);
+                    xhr.setRequestHeader("Content-type", "application/json");
+                    xhr.send(html);
+                    alert(html);
+                    document.getElementById("demo").innerHTML = html;
+                    return false;
+                }
             </script>
             <br>
 
