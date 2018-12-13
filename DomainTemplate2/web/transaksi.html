@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Daftar Domain</title>
+        <title>Transaksi</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -139,53 +139,58 @@
                     interval: 5000 //changes the speed
                 })
             </script><br>
-            <h2 style="margin-left: 20%">Daftar Domain</h2>
-            <input style="margin-left: 20%" type="text" placeholder="Domain" id="domain" required>
-            <button type="button" onclick="loadDoc()" id="btn"><font face="Century Gothic" size="3">Cari</font></button>
+            <h2 style="margin-left: 20%">Transaksi</h2>
+            <table>
+                <tr><td>ID Domain</td> <td><input type="text" id="id" value=""/></td>
+                <tr><td>Domain</td> <td><input type="text" id="domain" value=""/></td>
+                <tr><td>Harga Domain</td> <td><input type="text" id="harga" value=""/></td></tr>
+                <tr><td>Nama Penjual</td> <td><input type="text" id="namaPenjual" value=""/></td></tr>
+            </table>
             <br>
             <p id="demo"></p>
             <script>
                 function loadDoc() {
-                    var xmlhttp = new XMLHttpRequest();
-//                    var url = "http://localhost:8084/165314032_34_Pencari_Domain3/webresources/domain/getdomain?domain=" + domain.value;
-                    var url = "http://localhost:8084/Pencari_Domain3/webresources/domain/getdomain?domain=" + domain.value;
+                    //                    var url = "http://localhost:8084/165314032_34_Pencari_Domain3/webresources/domain/getdomain?domain=" + domain.value;
+                    var url = "http://localhost:8084/Pencari_Domain3/webresources/domain/getdomain?domain=" + getCookie("username");
 //                    var url = "http://202.94.83.190:8080/165314032_34_Pencari_Domain3/webresources/domain/getdomain?domain=" + domain.value;
-                    xmlhttp.onreadystatechange = function () {
+                    var url = "http://206.189.38.188:8080/myrs/webresources/pasien/cariPasien?nik=" + getCookie("username");
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.open("GET", url, true);
+                    xhttp.send();
+                    xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
-                            myFunction(this.responseText);
+                            var objj = JSON.parse(this.responseText);
+                            document.getElementById("nrm").value = objj.noRm;
+                            document.getElementById("nama").value = objj.nama;
+                            document.getElementById("nik").value = objj.nik;
+                            document.getElementById("alamat").value = objj.alamat;
+                            document.getElementById("tanggalLahir").value = objj.tanggalLahir;
+                            document.getElementById("kelamin").value = objj.kelamin;
+                        }
+                    };
+                }
+                function getCookie(cname) {
+                    var name = cname + "=";
+                    var decodedCookie = decodeURIComponent(document.cookie);
+                    var ca = decodedCookie.split(';');
+                    for (var i = 0; i < ca.length; i++) {
+                        var c = ca[i];
+                        while (c.charAt(0) == ' ') {
+                            c = c.substring(1);
+                        }
+                        if (c.indexOf(name) == 0) {
+                            return c.substring(name.length, c.length);
                         }
                     }
-                    xmlhttp.open("GET", url, true);
-                    xmlhttp.send();
-                    function myFunction(response) {
-                        var arr = JSON.parse(response);
-                        var i;
-                        var out = "<table border='1'> <tr><td>ID Domain</td><td>Domain</td><td>Harga Domain</td><td>Nama Penjual</td><td>Beli</td></tr>";
-                        for (i = 0; i < arr.length; i++) {
-                            out += "<tr><td>" +
-                                    arr[i].id +
-                                    "</td><td>" +
-                                    arr[i].domain +
-                                    "</td><td>" +
-                                    arr[i].harga +
-                                    "</td><td>" +
-                                    arr[i].namaPenjual +
-                                    "</td><td><button type=\"submit\" onclick=\"myFunction1('" + arr[i].id + "')\">Pesan</button></td></tr>";
-                        }
-                        out += "</table>";
-                        document.getElementById("demo").innerHTML = out;
+                    return "";
+                }
+                function checkCookie() {
+                    var username = getCookie("username");
+                    if (username != "") {
+                        document.getElementById("jadwal").value = username;
                     }
                 }
-                function myFunction1(id) {
-                    var myWindow = window.open("index.html");
-                    setCookie("username", id, 1);
-                }
-                function setCookie(cname, cvalue, exdays) {
-                    var d = new Date();
-                    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-                    var expires = "expires=" + d.toUTCString();
-                    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-                }
+
             </script>
             <br>
 
