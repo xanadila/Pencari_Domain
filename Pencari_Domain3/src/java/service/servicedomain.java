@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import helper.ServicesHelper;
 import helper.UserCalonPembeliHelper;
 import helper.UserDomainProviderHelper;
+import java.text.ParseException;
 import java.util.List;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
@@ -22,6 +23,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import pojos.UserDomainProvider;
 import javax.ws.rs.POST;
+import javax.ws.rs.QueryParam;
 import pojos.Services;
 import pojos.UserCalonPembeli;
 
@@ -107,4 +109,31 @@ public class servicedomain {
                 .build();
         
     }
+    @GET
+    @Path("caridomain")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getJson(@QueryParam("domain") String domain) throws ParseException {
+        ServicesHelper helper = new ServicesHelper();
+        Services hasilCari = helper.cariDomain(domain);
+        Gson gson = new Gson();
+//        return Response.status(200)
+//                .entity(json)
+//                .build();
+        return Response.status(200)
+                .entity(gson.toJson(hasilCari))
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Methods",
+                        "GET,POST,HEAD,OPTIONS,PUT")
+                .header("Access-Control-Allow-Headers",
+                        "Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers")
+                .header("Access-Exposed-Headers",
+                        "Access-Control-Allow-Origin,Access-Control-Allow-Credentials")
+                .header("Access-Support-Credentials",
+                        "true")
+                .header("Access-Control-Max-Age", "2")
+                .header("Access-Preflight-Maxage", "2")
+                .build();
+    }
+    
+    
 }
