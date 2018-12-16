@@ -161,7 +161,7 @@
             <p id="demo"></p>
             <script>
                 function loadDoc() {
-                    var url = "http://localhost:8084/Pencari_Domain3/webresources/domain/caridomainid?id=" + getCookie("username");
+                    var url = "http://202.94.83.190:8080/Pencari_Domain3/webresources/domain/caridomainid?id=" + getCookie("username");
                     var xhttp = new XMLHttpRequest();
                     xhttp.open("GET", url, true);
                     xhttp.send();
@@ -211,7 +211,7 @@
                         "tanggalPembelian": form.tanggalPembelian.value
                     };
                     var html = JSON.stringify(json, 0, 100);
-                    var Url = "http://localhost:8084/Pencari_Domain3/webresources/transaksi/addTransaksi";
+                    var Url = "http://202.94.83.190:8080/Pencari_Domain3/webresources/transaksi/addTransaksi";
                     var xhr = new XMLHttpRequest();
                     xhr.open('POST', Url, false);
                     xhr.setRequestHeader("Content-type", "application/json");
