@@ -171,16 +171,21 @@
                                     arr[i].harga +
                                     "</td><td>" +
                                     arr[i].namaPenjual +
-                                    "</td><td><button type=\"submit\" onclick=\"myFunction1('" + arr[i].id + "')\">Pesan</button>\n\
+                                    "</td><td><button type=\"submit\" onclick=\"myFunction1('" + arr[i].id + "', '" + arr[i].domain + "'\n\
+                , '" + arr[i].harga + "', '" + arr[i].namaPenjual + "')\">Pesan</button>\n\
                         </td></tr>";
                         }
                         out += "</table>";
                         document.getElementById("demo").innerHTML = out;
                     }
                 }
-                function myFunction1(id) {
-                    var myWindow = window.open("index.html");
+                function myFunction1(id, domain, harga, namaPenjual) {
+                    var myWindow = window.open("transaksi.html");
                     setCookie("username", id, 1);
+                    setCookie("domain", domain, 1);
+                    setCookie("harga", harga, 1);
+                    setCookie("namaPenjual", namaPenjual, 1);
+
                 }
                 function setCookie(cname, cvalue, exdays) {
                     var d = new Date();

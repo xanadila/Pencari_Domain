@@ -40,7 +40,7 @@
             }
         </style>
     </head>
-    <body>
+    <body onload="checkCookie()">
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
@@ -135,27 +135,29 @@
 
             <!-- Script to Activate the Carousel -->
             <script>
-                $('.carousel').carousel({
-                    interval: 5000 //changes the speed
-                })
+        $('.carousel').carousel({
+            interval: 5000 //changes the speed
+        })
             </script><br>
             <h2 style="margin-left: 10%">Transaksi</h2>
             <form action="" id="registerForm" onsubmit="return make_json(this)" method="POST">
                 <table style="margin-left: 10%">
-                    <tr><td>ID Domain</td> <td><input type="text" id="id" value=""/></td>
-                    <tr><td>Domain</td> <td><input type="text" id="domain" value=""/></td>
-                    <tr><td>Harga Domain</td> <td><input type="text" id="harga" value=""/></td></tr>
-                    <tr><td>Nama Penjual</td> <td><input type="text" id="namaPenjual" value=""/></td></tr>
-                    <tr><td>Tanggal Pembelian</td><td><script>
-                        var tD = new Date();
-                        var datestr = (tD.getMonth() + 1) + "/" + tD.getDate() + "/" + tD.getFullYear();
-                        document.write("<input type='text' id='tanggalPembelian' name='textField' disabled value='" + datestr + "'>");
+                    <tr><td>ID Domain</td> <td><input type="text" id="id" value="" disabled/></td>
+                    <tr><td>Domain</td> <td><input type="text" id="domain" value="" disabled/></td>
+                    <tr><td>Harga Domain</td> <td><input type="text" id="harga" value="" disabled/></td></tr>
+                    <tr><td>Nama Penjual</td> <td><input type="text" id="namaPenjual" value="" disabled/></td></tr>
+                    <tr><td>Tanggal Pembelian</td><td>
+                            <script>
+                                var tD = new Date();
+//                        var datestr = (tD.getMonth() + 1) + "/" + tD.getDate() + "/" + tD.getFullYear();
+                                var datestr = tD.getFullYear() + "-" + (tD.getMonth() + 1) + "-" + tD.getDate();
+                                document.write("<input type='text' id='tanggalPembelian' name='textField' disabled value='" + datestr + "'>");
                             </script></td></tr>
                 </table>
-            </form>
-            <br>
-            <button class="button" id="save" type="Submit" style="margin-left: 10%"><font face="Century Gothic" size="4" ><span>SIMPAN </span></font></button>
 
+                <br>
+                <button class="button" id="save" type="Submit" style="margin-left: 10%"><font face="Century Gothic" size="4" ><span>SIMPAN </span></font></button>
+            </form>
             <p id="demo"></p>
             <script>
                 function loadDoc() {
@@ -190,8 +192,14 @@
                 }
                 function checkCookie() {
                     var username = getCookie("username");
+                    var domain = getCookie("domain");
+                    var harga = getCookie("harga");
+                    var namaPenjual = getCookie("namaPenjual");
                     if (username != "") {
-                        document.getElementById("jadwal").value = username;
+                        document.getElementById("id").value = username;
+                        document.getElementById("domain").value = domain;
+                        document.getElementById("harga").value = harga;
+                        document.getElementById("namaPenjual").value = namaPenjual;
                     }
                 }
                 function make_json(form) {
