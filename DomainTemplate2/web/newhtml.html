@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        
+        <h2 style="margin-left: 20%">Daftar Domain</h2>
+            <input style="margin-left: 20%" type="text" placeholder="Domain" id="domain" required>
+            <button type="button" onclick="loadDoc()" id="btn"><font face="Century Gothic" size="3">Cari</font></button>
+            <br><br><br><br>
+            <p style="margin-left: 5%" id="demo"></p>
+
+            <script>
+                function loadDoc() {
+
+                    var url = "http://202.94.83.190:8080/Pencari_Domain3/webresources/domain/caridomain?domain=" + domain.value;
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            myFunction(this.responseText);
+
+                        }
+
+                    }
+                    xhttp.open("GET", url, true);
+                    xhttp.send();
+                    function myFunction(response) {
+                        var arr = JSON.parse(response);
+                        var i;
+                        var out = "<table> <tr><td>ID_Domain</td><td>Domain</td><td>Harga_Domain</td><td>Nama_Penjual</td><td>Beli</td></tr>";
+                        for (i = 0; i < arr.length; i++) {
+                            out += "<tr><td>" +
+                                    arr[i].id +
+                                    "</td><td>" +
+                                    arr[i].domain +
+                                    "</td><td>" +
+                                    arr[i].harga +
+                                    "</td><td>" +
+                                    arr[i].namaPenjual +
+                                    "</td><td><button type=\"submit\" onclick=\"myFunction1('" + arr[i].id + "')\">Pesan</button></td></tr>";
+                        }
+                        out += "</table>";
+                        document.getElementById("demo").innerHTML = out;
+                    }
+                }
+                function myFunction1(id) {
+                    var myWindow = window.open("index.html");
+                    setCookie("username", id, 1);
+                }
+                function setCookie(cname, cvalue, exdays) {
+                    var d = new Date();
+                    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                    var expires = "expires=" + d.toUTCString();
+                    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+                }
+
+            </script>
+
+        
+    </body>
+    
+</html>
