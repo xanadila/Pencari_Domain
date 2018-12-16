@@ -44,17 +44,25 @@ public class servicedomain {
      */
     public servicedomain() {
     }
+     @GET
+    @Produces(MediaType.APPLICATION_JSON)
+     public Response getJson() {
+        //TODO return proper representation object
+        ServicesHelper test = new ServicesHelper();
+        List<Services> list = test.getServices();
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        return Response
+                .status(200)
+                .entity(json)
+                .build();
+    }
 
     /**
      * Retrieves representation of an instance of service.GenericResource
      * @return an instance of java.lang.String
      */
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public String getJson() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
-    }
+   
 
     /**
      * PUT method for updating or creating an instance of GenericResource
