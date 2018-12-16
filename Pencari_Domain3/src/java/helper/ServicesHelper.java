@@ -47,8 +47,7 @@ public class ServicesHelper {
 
     }
 
-    public Services cariDomain(
-            String domain) {
+    public List<Services> cariDomain(String domain) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         String query = "from Services s where s.domain=:domain";
@@ -58,7 +57,7 @@ public class ServicesHelper {
         tx.commit();
         session.close();
         if (list.size() > 0) {
-            return list.get(0);
+            return list;
         } else {
             return null;
         }

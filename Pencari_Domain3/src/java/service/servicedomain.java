@@ -45,7 +45,7 @@ public class servicedomain {
     public servicedomain() {
     }
      @GET
-    @Produces(MediaType.APPLICATION_JSON)
+     @Produces(MediaType.APPLICATION_JSON)
      public Response getJson() {
         //TODO return proper representation object
         ServicesHelper test = new ServicesHelper();
@@ -120,9 +120,9 @@ public class servicedomain {
     @GET
     @Path("caridomain")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getJson(@QueryParam("domain") String domain) throws ParseException {
+    public Response cariDOmain (@QueryParam("domain") String domain) {
         ServicesHelper helper = new ServicesHelper();
-        Services hasilCari = helper.cariDomain(domain);
+        List <Services> hasilCari = helper.cariDomain(domain);
         Gson gson = new Gson();
 //        return Response.status(200)
 //                .entity(json)
