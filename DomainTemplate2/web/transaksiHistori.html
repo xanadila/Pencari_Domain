@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Daftar Domain</title>
+        <title>Transaksi Histori</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -58,9 +58,6 @@
                             <li>
                                 <a href="index.html">Home</a>
 
-                            </li>
-                            <li>
-                                <a href="transaksiHistori.html">Transaksi</a>
                             </li>
                     </div> 
                     <!-- /.navbar-collapse -->
@@ -122,11 +119,10 @@
                     interval: 5000 //changes the speed
                 })
             </script><br>
-            <h2 style="margin-left: 20%">Daftar Domain</h2>
-            <h2><a href="daftarDomain.html"><button class="button" id="btn" type="button" style="margin-left: 20%"><font face="Century Gothic" size="4" ><span>Tambah Domain </span></font></button></a></h2>
+            <h2 style="margin-left: 20%">Transaksi Histori</h2>
             <p id="demo"></p>
             <script>
-                var url = "http://202.94.83.190:8080/165314032_34_Pencari_Domain3/webresources/domain/getdomain";
+                var url = "http://202.94.83.190:8080/Pencari_Domain3/webresources/transaksi/getTransaksi";
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
@@ -139,20 +135,22 @@
                 function loopingList(response) {
                     var size = JSON.parse(response);
                     var i;
-                    var out = "<table align='center' style='width: 60%;' border='1'> <tr><td>ID Domain</td><td>Domain</td><td>Harga Domain</td><td>Nama Penjual</td></tr>";
+                    var out = "<table align='center' style='width: 60%;' border='1'> <tr><td>\n\
+                    ID</td><td>Nama Domain</td><td>Harga</td><td>Nama Penjual</td>\n\
+                    <td>Tanggal Pembelian</td></tr>";
 
                     for (i = 0; i < size.length; i++) {
-                        out += "<tr><td>" + size[i].id +
+                       out += "<tr><td>" + size[i].id +
                                 "</td><td>" + size[i].domain +
                                 "</td><td>" + size[i].harga +
                                 "</td><td>" + size[i].namaPenjual +
+                                "</td><td>" + size[i].tanggalPembelian +
                                 "</td></tr>";
                     }
                     out += "</table>";
                     document.getElementById("demo").innerHTML = out;
                     ;
                 }
-
             </script><br>
 
             <div class="container-fluid text-center text-md-left" style=" background-color: #A4AAAF">
@@ -165,7 +163,7 @@
 
 
                         <!-- Content -->
-                       
+                        
                     </div>
                     <!-- Grid column -->
 
@@ -175,7 +173,7 @@
                     <div class="col-md-6 mt-md-0 mt-3" style=" background-color: #A4AAAF">
 
                         <!-- Content -->
-                       
+                      
                     </div>
                     <!-- Grid row -->
 

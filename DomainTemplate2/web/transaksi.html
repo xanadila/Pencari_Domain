@@ -143,7 +143,7 @@
             <form action="" id="registerForm" onsubmit="return make_json(this)" method="POST">
                 <table style="margin-left: 10%">
                     <tr><td>ID Domain</td> <td><input type="text" id="id" value="" disabled/></td>
-                    <tr><td>Domain</td> <td><input type="text" id="domain" value="" disabled/></td>
+                    <tr><td>Domain</td><td><input type="text" id="x" value="" /></td><td style="width: 80px"><input style="width: 75px" type="text" id="domain" value="" disabled/></td>
                     <tr><td>Harga Domain</td> <td><input type="text" id="harga" value="" disabled/></td></tr>
                     <tr><td>Nama Penjual</td> <td><input type="text" id="namaPenjual" value="" disabled/></td></tr>
                     <tr><td>Tanggal Pembelian</td><td>
@@ -205,7 +205,7 @@
                 function make_json(form) {
                     var json = {
                         "id": form.id.value,
-                        "domain": form.domain.value,
+                        "domain": form.x.value + form.domain.value,
                         "harga": form.harga.value,
                         "namaPenjual": form.namaPenjual.value,
                         "tanggalPembelian": form.tanggalPembelian.value
@@ -233,9 +233,7 @@
 
 
                         <!-- Content -->
-                        <h5 class="text-uppercase font-weight-bold">Footer text 1</h5>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita sapiente sint, nulla, nihil repudiandae commodi voluptatibus corrupti animi sequi aliquid magnam debitis, maxime quam recusandae harum esse fugiat. Itaque, culpa?</p>
-
+                        
                     </div>
                     <!-- Grid column -->
 
@@ -245,8 +243,7 @@
                     <div class="col-md-6 mt-md-0 mt-3" style=" background-color: #A4AAAF">
 
                         <!-- Content -->
-                        <h5 class="text-uppercase font-weight-bold" style=" background-color: #A4AAAF">Footer text 2</h5>
-                        <p style=" background-color: #A4AAAF">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio deserunt fuga perferendis modi earum commodi aperiam temporibus quod nulla nesciunt aliquid debitis ullam omnis quos ipsam, aspernatur id excepturi hic.</p>
+
 
                     </div>
                     <!-- Grid row -->
